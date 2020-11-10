@@ -20,7 +20,8 @@ def graph():
         plt.title("Electoral Vote Count")
         plt.xlabel("Party or Swing")
         plt.ylabel("Votes")
-        plt.bar([choice], [votes], color=['purple'] if choice == 'P' else ['red'] if choice == 'R' else ['blue'] if choice == 'B' else ['black'])
+        plt.bar([choice], [votes], color=['purple'] if choice == 'P' else ['red'] if choice == 'R' else ['blue'] if
+        choice == 'B' else ['black'])
     plt.show()
 
 
