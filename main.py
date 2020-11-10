@@ -2,8 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-def read_data(file_name):
-    data = open(file_name)
+def read_data():
+    data = open('electoral_data.csv')
     results = []
     data.readline()
     for row in data.readlines():
@@ -13,6 +13,21 @@ def read_data(file_name):
     return results
 
 
+def graph():
+    results = read_data()
+    for choice in ['R', 'B', 'P']:
+        votes = sum(x[1] for x in results if x[2] == choice)
+        plt.title("Electoral Vote Count")
+        plt.xlabel("Party or Swing")
+        plt.ylabel("Votes")
+        plt.bar([choice], [votes], color=['purple'] if choice == 'P' else ['red'] if choice == 'R' else ['blue'])
+    plt.show()
+
+
+def stateChoice():
+    input('What state are you from?')
+
+
 if __name__ == '__main__':
-    results = read_data('electoral_data.csv')
-    print(results)
+    read_data()
+    graph()
